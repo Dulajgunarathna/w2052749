@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeedBack Form</title>
+    <!--Link to StyleSheet-->
+    <link rel="StyleSheet" href="StyleFeedbackForm.css">
+</head>
+<body>
+    <!--This will create the Logo and the navigation bar on the top of the webpage-->
+    <hr>
+    <div class="logo">
+        <img src="Images/Eatwell Logo.jpeg" alt="Eatwell Logo">
+    </div>
+    <div class="topnav">
+        <nav>
+            <a href="Home.html"><button>Home</button></a>
+            <a><button>Gallery</button></a>
+            <a><button>Shop</button></a>
+            <a><button>User Profile</button></a>
+            <a href="feedback.html"><button>FeedBack</button></a>
+            <a><button>Sitemap</button></a>
+            <a><button>Team</button></a>
+            <a href="Student2ContentPage.html"><button>Content Page</button></a>
+            <a href="Student2PageEditor.html"><button>Page Editor</button></a>
+        </nav>
+    </div>
+
+
+    <!--This Create the Form-->
+    <div id="container1" class="container">
+        <h1 class="feedbacktitlepage">Feedback Form</h1>
+        <h3>Required fields*</h3>
+        <form id="form" onsubmit="return validateAndSubmit()">
+            <div class="description">
+                 <span style="color:red">*</span><label for="name">1.Enter your Name: </label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" autocomplete="on" required >
+            </div>
+            <div class="description">
+                <span style="color:red">*</span><label for="email">2.Enter your Email: </label>
+                <input type="text" id="email" name="email" placeholder="Enter your email" autocomplete="on" required >
+            </div>
+            <div class="description">
+                <label for="visiting">3.Was this your first time visiting?</label>
+                <div class="firstVisit">
+                    <input type="radio" id="visiting_yes" name="visiting" value="Yes">
+                    <label for="visiting_yes">yes</label>
+                    <input type="radio" id="visiting_no" name="visiting" value="No" >
+                    <label for="visting_no">No</label>
+                </div>
+            </div>
+            <div class="description">
+                <label for="navigate">4.Was this website informative and easy to navigate through?</label>
+                <div class="wesbsiteNavigate">
+                    <input type="radio" id="navigate_yes" name="navigate" value="Yes">
+                    <label for="navigate_yes">yes</label>
+                    <input type="radio" id="navigate_no" name="navigate" value="No">
+                    <label for="navigate_no">No</label>
+                </div>
+            </div>
+            <div class="description">
+                <label for="suggest">5.If "No",Suggest any improvement for the future</label>
+                <div>
+                    <textarea id="suggestion" placeholder="Add your message here" rows="5" cols="20"></textarea>
+                </div>
+            </div>
+            <div class="description">
+                <label for="satisfied">6.How satisfied are you with Our services? Choose from 0 to 10, with 1 being "Not <br> satisfied at all!" and 10 being "Extremely satisfied</label>
+                <div class="satisfied">
+                    <input type="radio" id="rating1" name="satisfied" value="1">
+                    <label for="rating1">1</label>
+                    <input type="radio" id="rating2" name="satisfied" value="2">
+                    <label for="rating2">2</label>
+                    <input type="radio" id="rating3" name="satisfied" value="3">
+                    <label for="rating3">3</label>
+                    <input type="radio" id="rating4" name="satisfied" value="4">
+                    <label for="rating4">4</label>
+                    <input type="radio" id="rating5" name="satisfied" value="5">
+                    <label for="rating5">5</label>
+                    <input type="radio" id="rating6" name="satisfied" value="6">
+                    <label for="rating6">6</label>
+                    <input type="radio" id="rating7" name="satisfied" value="7">
+                    <label for="rating7">7</label>
+                    <input type="radio" id="rating8" name="satisfied" value="8">
+                    <label for="rating8">8</label>
+                    <input type="radio" id="rating9" name="satisfied" value="9">
+                    <label for="rating9">9</label>
+                    <input type="radio" id="rating10" name="satisfied" value="10">
+                    <label for="rating10">10</label>
+                </div>
+            </div>
+            <div class="description">
+                <label for="recommend">7.Would you recommend our services?</label>
+                <div class="recommend">
+                    <input type="radio" id="recommend_yes" name="recommend" value="Yes" >
+                    <label for="yes">yes</label>
+                    <input type="radio" id="recommend_no" name="recommend" value="No">
+                    <label for="no">No</label>
+                </div>
+            </div>
+            <div class="description">
+                <span style="color:red">*</span><label for="updates">8.Would you like to receive updates about the website and any offers?</label>
+                <div class="updates">
+                    <select  id="recieveUpdate" required>
+                        <option disabled selected value="">Please select</option>
+                        <option id="via-email" value="Yes-via Email">Yes-via Email</option>
+                        <option id="via-message" value="Yes-via message">Yes-via message</option>
+                        <option id="no" value="No">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="description">
+                <label for="suggest">9.Do you have any additional questions or requests?</label>
+                <div>
+                    <textarea id="additionalSuggestion" placeholder="Add your message here" rows="5" cols="20"></textarea>
+                </div>
+            </div>
+            <div class="formButtonSection">
+                <button type="button" id="submit" onclick="validateAndSubmit()">Submit</button>
+                <input type="reset" id="reset" name="reset" value="Reset" onclick="closePopup()">
+    
+            </div>
+        </form>
+    
+        <!--This creates the Preview Section to edit or submit-->
+        <div id="previewSection" style="display: none;">
+            <h2>Preview</h2>
+            <p><strong>Name:</strong> <span id="previewName"></span></p>
+            <p><strong>Email:</strong> <span id="previewEmail"></span></p>
+            <p><strong>First Time Visiting:</strong> <span id="previewVisiting"></span></p>
+            <p><strong>Informative and Easy to Navigate:</strong> <span id="previewNavigate"></span></p>
+            <p><strong>Suggestion for Improvement:</strong><br> <span id="previewSuggestion"></span></p>
+            <p><strong>Satisfaction Rating:</strong> <span id="previewRating"></span></p>
+            <p><strong>Would Recommend:</strong> <span id="previewRecommend"></span></p>
+            <p><strong>Updates Preference:</strong> <span id="previewUpdates"></span></p>
+            <p><strong>Additional Comments/Requests:</strong><br> <span id="previewAdditional"></span></p>
+            <button onclick="editForm()" id="previewEdit">Edit</button>
+            <button id="previewSubmit" onclick="validPreview()">Submit</button>
+        </div>
+        
+        <!--This creates the comfirmation popup message-->
+        <div class="popup" id="popup">
+                <img src="Images/tick2.jpg" alt="Green Tick Picture">
+                <h2>Thank you</h2>
+                <p>Your details have been successfully submitted. Thanks!</p>
+                <button type="button" onclick="closePopup()">Ok</button>
+            </div>
+        </div>
+        <!--Link to javaScript-->
+        <script src="FeedbackForm.js"></script>
+</body>
+</html>

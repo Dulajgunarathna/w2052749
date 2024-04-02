@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="StyleSheet" href="StyleHome.css">
+</head>
+<body>
+    <!--This will create the Logo and the navigation bar on the top of the webpage-->
+    <hr>
+    <div class="logo">
+        <img src="Images/Eatwell Logo.jpeg" alt="Eatwell Logo">
+    </div>
+    <div class="topnav">
+        <nav>
+            <a href="Home.html"><button>Home</button></a>
+            <a><button>Gallery</button></a>
+            <a><button>Shop</button></a>
+            <a><button>User Profile</button></a>
+            <a href="FeedbackForm.html"><button>FeedBack</button></a>
+            <a><button>Sitemap</button></a>
+            <a><button>Team</button></a>
+            <a href="Student2ContentPage.html"><button>Content Page</button></a>
+            <a href="Student2PageEditor.html"><button>Page Editor</button></a>
+        </nav>
+    </div>
+
+    <!-- Slideshow with images -->
+    <div class="slider">
+        <div class="images">
+            <input type="radio" name="slide" id="img1" checked>
+            <input type="radio" name="slide" id="img2">
+            <input type="radio" name="slide" id="img3">
+            <input type="radio" name="slide" id="img4">
+    
+            <img src="Images/food1.jpg" class="image1" alt="Devilled Chicken" style="width: 100%;">
+            <img src="Images/food2.jpg" class="image2" alt="Milkshake" style="width: 100%;">
+            <img src="Images/food3.jpg" class="image3" alt="Noodles" style="width: 100%;">
+            <img src="Images/food4.jpg" class="image4" alt="Rice and Curry" style="width: 100%;">
+        </div>
+        <!-- Navigation dots for the slideshow -->
+        <div class="dots">
+            <label for="img1"></label>
+            <label for="img2"></label>
+            <label for="img3"></label>
+            <label for="img4"></label>
+        </div>
+    </div>
+
+    <div class="contentPage">
+        <div class="contentPageS1">
+            <a><button class="buttonS1">Sustainable Farming</button></a> <!-- Button for Sustainable Farming -->
+        </div>
+        <div class="contentPageS2">
+            <a href="Student2ContentPage.html"><button class="buttonS2">Child Nutrition</button></a> <!-- Button for Child Nutrition -->
+        </div>
+        <div class="contentPageS3">
+            <a><button class="buttonS3">Prevention Of Undernourishment</button></a> <!-- Button for Prevention Of Undernourishment -->
+        </div>
+    </div>
+    <script>
+        function startSlideshow() {
+            // Select all the input elements inside .images
+            const imagesInput = document.querySelectorAll('.images input');
+
+            // Initialize index to track current slide
+            let currentIndex = 0;
+
+            // Function to transition to the next slide
+            function nextSlide() {
+                // Hide the current slide
+                imagesInput[currentIndex].checked = false;
+                // Increment the index to move to the next slide
+                currentIndex = (currentIndex + 1) % imagesInput.length;
+                // Show the next slide
+                imagesInput[currentIndex].checked = true;
+            }
+
+            // Automatically transition to the next slide every 5 seconds
+            setInterval(nextSlide, 5000);
+        }
+
+        // Wait for the DOM content to be loaded
+        document.addEventListener("DOMContentLoaded", startSlideshow);
+    </script>
+</body>
+</html>
